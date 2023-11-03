@@ -15,7 +15,7 @@
             "cwd": "Frontend",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"dd
+            "flutterMode": "profile"
         },
         {
             "name": "Frontend (release mode)",
