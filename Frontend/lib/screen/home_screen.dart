@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_node_front/screen/create_screen.dart';
+import 'package:flutter_node_front/screen/fetch_data_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,7 +30,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Text("CREATE"),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FetchDataScreen(),
+                  ),
+                );
+              },
               child: const Text("READ"),
             ),
             ElevatedButton(
