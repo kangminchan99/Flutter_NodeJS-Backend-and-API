@@ -47,6 +47,7 @@ class _CreateScreenState extends State<CreateScreen> {
             ),
             ElevatedButton(
               onPressed: () {
+                // 맵 형태로 Api.addproduct로 데이터 전송
                 var data = {
                   "pname": _nameTextEditingController.text,
                   "pprice": _priceTextEditingController.text,
