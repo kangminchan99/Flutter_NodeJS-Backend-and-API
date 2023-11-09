@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_node_front/screen/create_screen.dart';
+import 'package:flutter_node_front/screen/delete_screen.dart';
 import 'package:flutter_node_front/screen/fetch_data_screen.dart';
+import 'package:flutter_node_front/screen/update_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,11 +43,25 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Text("READ"),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UpdateScreen(),
+                  ),
+                );
+              },
               child: const Text("UPDATE"),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DeleteScreen(),
+                  ),
+                );
+              },
               child: const Text("DELETE"),
             ),
           ],
