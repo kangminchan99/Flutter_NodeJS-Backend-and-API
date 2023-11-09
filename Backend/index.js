@@ -1,5 +1,9 @@
+// .env 파일의 환경 변수 로드
+require('dotenv').config();
+
 // Express.js 웹 프레임워크를 사용하기 위한 기본 모듈
 const express = require("express");
+const mongoose = require("mongoose")
 
 // Express 애플리케이션 생성 후 app변수에 할당
 const app = express();
@@ -14,10 +18,22 @@ app.use(express.urlencoded({
 
 const productData = [];
 
-// 콜백함수 - 2000번 포트에서 실행되는 Express 웹 서버를 만들기
-app.listen(2000, () => {
-    console.log("Connected to server at 2000")
+// mongodb+srv://kangminchan99:<password>@cluster0.opsnezo.mongodb.net/?retryWrites=true&w=majority
+
+// connect to mongoose
+mongoose.set('strictQuery', true);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
+.then(() => {
+  console.log("Connected");
+})
+.catch((error) => {
+  console.error("Error connecting to mongoose:", error);
+});
+
+
 
 //post api
 // HTTP POST 메서드로 /api/add_product 경로에 대한 라우트를 정의
@@ -91,3 +107,7 @@ app.post("/api/delete/:id", (req, res)=> {
 })
 
 
+// 콜백함수 - 2000번 포트에서 실행되는 Express 웹 서버를 만들기 or mongoose 연결
+app.listen(2000, () => {
+    console.log("Connected to server at 2000")
+})
